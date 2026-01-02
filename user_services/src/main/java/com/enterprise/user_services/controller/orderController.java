@@ -41,6 +41,10 @@ public class orderController {
     public ResponseEntity<ApplicationUserDTO> userDetails(@RequestParam Long id) {
         return ResponseEntity.ok(userServices.getDetails(id));
     }
+    @GetMapping("sellerDetails")
+    public ResponseEntity<ApplicationSellers> sellerDetails(@RequestParam Long id) {
+        return ResponseEntity.ok(sellerService.getDetails(id));
+    }
     @PostMapping("addUser")
     public ResponseEntity<String> addUser(@RequestBody ApplicationUser user) {
         System.out.println(user);

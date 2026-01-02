@@ -1,6 +1,7 @@
 package com.enterprise.user_services.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,12 @@ import com.enterprise.user_services.repository.Sellerrepo;
 public class SellerService {
     @Autowired
     Sellerrepo repo;
+
+    public ApplicationSellers getDetails(Long Id){
+        Optional<ApplicationSellers> seller=repo.findById(Id);
+        if(seller.isPresent())  return seller.get();
+        return seller.get();
+    }
 
     String addSeller(ApplicationSellers seller) {
         repo.save(seller);
