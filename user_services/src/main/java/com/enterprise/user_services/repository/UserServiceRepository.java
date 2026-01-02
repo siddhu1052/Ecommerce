@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.enterprise.user_services.DTO.ApplicationUserDTO;
@@ -43,5 +44,22 @@ public interface UserServiceRepository extends JpaRepository<ApplicationUser,Lon
     """)
     List<ApplicationUserDTO> findAllUsersAsDTOCustomers();
 
+@Query("""
+    select new com.enterprise.user_services.DTO.ApplicationUserDTO(
+        u.user_id,
+        u.first_name,
+        u.middle_name,
+        u.last_name,
+        u.email,
+        u.country_code,
+        u.mobile_no,
+        u.seller,
+        u.address
+    )
+    from ApplicationUser u 
+    where u.user_id = ?1
+""")
+ApplicationUserDTO getDetails(Long id);
+    
     void deleteById(Long id);
 }

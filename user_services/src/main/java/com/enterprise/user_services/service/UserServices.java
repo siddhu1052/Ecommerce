@@ -16,19 +16,8 @@ public class UserServices {
     @Autowired
     UserServiceRepository userRepo;
 
-    public String getDetails(String id, Integer type) {
-        switch (type) {
-            case 1:
-                System.out.println("Customer");
-
-                break;
-            case 2:
-                System.out.println("Seller");
-                break;
-            default:
-                break;
-        }
-        return "In User Detail service"+type;
+    public ApplicationUserDTO getDetails(Long id) {
+        return userRepo.getDetails(id);
     }
 
     public String addUser(ApplicationUser user){
