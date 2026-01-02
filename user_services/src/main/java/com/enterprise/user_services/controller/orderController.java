@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.enterprise.user_services.service.SellerService;
 import com.enterprise.user_services.service.UserServices;
 
-import jakarta.ws.rs.core.Response;
+// import jakarta.ws.rs.core.Response;
 
 import com.enterprise.user_services.DTO.ApplicationUserDTO;
 import com.enterprise.user_services.model.ApplicationSellers;
@@ -28,6 +28,13 @@ public class orderController {
 
     @Autowired
     SellerService sellerService;
+
+    @GetMapping("/")
+    public String getMethodName(@RequestParam String param) {
+        return "User Servies is Up and Responding";
+    }
+    
+
     @GetMapping("userdetails")
     public String userDetails(@RequestParam String id, Integer type) {
         return userServices.getDetails(id,type);
