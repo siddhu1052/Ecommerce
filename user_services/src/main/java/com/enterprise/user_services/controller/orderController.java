@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.enterprise.user_services.service.SellerService;
 import com.enterprise.user_services.service.UserServices;
 
+import jakarta.ws.rs.core.Response;
+
 // import jakarta.ws.rs.core.Response;
 
 import com.enterprise.user_services.DTO.ApplicationUserDTO;
@@ -36,8 +38,8 @@ public class orderController {
     
 
     @GetMapping("userdetails")
-    public String userDetails(@RequestParam String id, Integer type) {
-        return userServices.getDetails(id,type);
+    public ResponseEntity<ApplicationUserDTO> userDetails(@RequestParam Long id) {
+        return ResponseEntity.ok(userServices.getDetails(id));
     }
     @PostMapping("addUser")
     public ResponseEntity<String> addUser(@RequestBody ApplicationUser user) {
