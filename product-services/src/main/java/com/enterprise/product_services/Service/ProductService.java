@@ -41,6 +41,12 @@ public class ProductService {
         return productDAO.findById(Id);
     }
 
+    public List<Product> getProductByUserId(Long Id) {
+        System.out.println("In GetProductByUserId service");
+        return productDAO.findByUserId(Id);
+    }
+
+
     public String deleteSome(Long Id, Integer num) {
         System.out.println("In deleteOne");
         int result = productDAO.decreaseSome(Id, num);

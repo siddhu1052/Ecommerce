@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.enterprise.user_services.service.SellerService;
 import com.enterprise.user_services.service.UserServices;
 
-import jakarta.ws.rs.core.Response;
 
 // import jakarta.ws.rs.core.Response;
 

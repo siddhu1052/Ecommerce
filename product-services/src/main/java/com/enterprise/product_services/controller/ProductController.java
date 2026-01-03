@@ -45,6 +45,12 @@ public class ProductController {
         return productService.getProductById(id);
     }
 
+    @GetMapping("getByUserId")
+    public List<Product> getMethodName(@RequestParam Long Id) {
+        return productService.getProductByUserId(Id);
+    }
+    
+
     @PostMapping("deleteSome")
     public String deleteSome(@RequestParam Long id, @RequestParam Integer num) {
         System.out.println("quantity of product decreased by one");

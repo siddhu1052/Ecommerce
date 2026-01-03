@@ -28,4 +28,5 @@ public interface ProductDAO extends JpaRepository<Product, Long> {
     @Query("SELECT e FROM Product e WHERE e.quantity > 0")
     List<Product> productsAvailable();
 
+    List<Product> findByUserId(Long userId);
 }
